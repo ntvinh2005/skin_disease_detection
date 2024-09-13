@@ -6,8 +6,8 @@ The **Skin Disease Detection model** is capable of predicting and distinguishing
 
 ## Features
 
-- **Input**: Image with dimension (1, 3, 75, 100)
-- **Output**: 9 output classes corresponding to 9 skin diseases
+- **Input**: Image with dimension (1, 3, 75, 100).
+- **Output**: 9 output classes corresponding to 9 skin diseases.
 - **Transfer learning**: Use DenseNet121 as base model for transfer learning.
 - **Dataset**: Train on Kaggle "Skin disease image dataset" uploaded by Ismail Hossain. Read more about dataset information in Dataset section.
 
@@ -19,16 +19,17 @@ The **Skin Disease Detection model** is capable of predicting and distinguishing
 
 ## Dataset
 ### Dataset "Skin disease image dataset" on Kaggle
-Contain about 27200 .jpg image files, arranged into 10 folders named after 10 popular skin diseases. However, since Eczema and Atopic Dermatitis are the same disease, so when preparing data, I have removed folder Atopic to reduce the chance of having any confusion or bias.
+Contain about 27200 .jpg image files, arranged into 10 folders named after 10 popular skin diseases. However, since Eczema and Atopic Dermatitis are the same disease, so when preparing data, I have removed folder Atopic to reduce potential confusion or bias.
 
 This is the dataset I officially use to train model in skin_disease_detection notebook.
 Link to dataset here [Skin disease image dataset](https://www.kaggle.com/datasets/ismailpromus/skin-diseases-image-dataset)
 
 ### Dataset SCIN (Skin Condition Image Network) 
 Open access dataset aims to supplement publicly available dermatology datasets from health system sources with representative images from internet users. 
-The SCIN dataset contains 5,000+ volunteer contributions (10,000+ images) of common dermatology conditions. Contributions include Images, self-reported demographic, history, and symptom information, and self-reported Fitzpatrick skin type (sFST). In addition, dermatologist labels of the skin condition and estimated Fitzpatrick skin type (eFST) and layperson estimated Monk Skin tone (eMST) labels are provided for each contribution.
 
-In the progress of training model using this dataset, I found out that the images are not distributed evenly. For example, Eczema has over 1000 images, while some classes only has under 30 images. Even after limiting the output classes number to only 10, the number of images per class are not enough to train model for decent accuracy.
+The SCIN dataset provides over 10,000 images contributed by volunteers, along with self-reported demographic, history, and symptom information, including Fitzpatrick skin type (sFST). Dermatologists also provided labels for skin conditions and estimated Fitzpatrick skin type (eFST), along with layperson-estimated Monk Skin Tone (eMST) labels.
+
+During training, I found that the SCIN dataset suffers from class imbalance, with some skin conditions having only 30 images compared to others having over 1,000. Even after reducing the number of output classes, there weren't enough images for each class to train a model with decent accuracy.
 This is my failed experiment with the dataset. It should have been used for different purposes, or by different methods. You can see the result in bigram notebook.
 Link to dataset here [SCIN](https://github.com/google-research-datasets/scin)
 
